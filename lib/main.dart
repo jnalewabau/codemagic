@@ -7,7 +7,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter CI with Codemagic',
+      title: 'JoeN Flutter CI with Codemagic',
       theme: ThemeData(
         primarySwatch: Provider.of<Color>(context),
       ),
