@@ -11,7 +11,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Provider.of<Color>(context),
       ),
-      home: MyHomePage(title: 'Flutter CI with Codemagic'),
+      home: MyHomePage(title: 'JoeN Flutter CI with Codemagic JoeN'),
     );
   }
 }
