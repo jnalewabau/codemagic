@@ -14,10 +14,10 @@ Future<void> mainCommon(String env) async {
   Color primaryColor;
   switch (env) {
     case Environment.dev:
-      primaryColor = Colors.blue;
+      primaryColor = Colors.red;
       break;
     case Environment.prod:
-      primaryColor = Colors.red;
+      primaryColor = Colors.green;
       break;
   }
 

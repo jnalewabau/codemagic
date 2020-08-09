@@ -8,13 +8,21 @@
       "name": "Dev Build",
       "program": "lib/main_dev.dart",
       "request": "launch",
-      "type": "dart"
+      "type": "dart",
+      "args": [
+        "--flavor",
+        "dev"
+      ]
     },
     {
       "name": "Prod Build",
       "program": "lib/main_prod.dart",
       "request": "launch",
-      "type": "dart"
+      "type": "dart",
+      "args": [
+        "--flavor",
+        "prod"
+      ]
     }
   ]
 }
