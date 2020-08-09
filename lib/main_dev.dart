@@ -1,6 +1,9 @@
-import 'environment.dart';
+import 'package:flutter/material.dart';
+
+import 'flavor.dart';
 import 'main_common.dart';
 
 Future<void> main() async {
-  await mainCommon(Environment.dev);
+  var flavor = FlavorConfig(flavor: Flavor.DEV, color: Colors.orange);
+  await mainCommon(flavor);
 }

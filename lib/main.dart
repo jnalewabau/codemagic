@@ -1,3 +1,4 @@
+import 'package:codemagic/flavor_banner.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -7,11 +8,12 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'JoeN Flutter CI with Codemagic',
+      title: 'JoeN Codemagic Demo',
+      debugShowCheckedModeBanner: false,
       theme: ThemeData(
         primarySwatch: Provider.of<Color>(context),
       ),
-      home: MyHomePage(title: 'JoeN Flutter CI with Codemagic JoeN'),
+      home: MyHomePage(title: 'JoeN Codemagic Demo'),
     );
   }
 }
@@ -36,32 +38,36 @@ class _MyHomePageState extends State<MyHomePage> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text(widget.title),
-      ),
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            Text(
-              'You have pushed the button this many times:',
+    return SafeArea(
+      child: FlavorBanner(
+        child: Scaffold(
+          appBar: AppBar(
+            title: Text(widget.title),
+          ),
+          body: Center(
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: <Widget>[
+                Text(
+                  'You have pushed the button this many times:',
+                ),
+                Text(
+                  '$_counter',
+                  style: Theme.of(context).textTheme.headline4,
+                ),
+                Text(
+                  'Revealed secret:\n${ConfigReader.getSecretKey()}',
+                  textAlign: TextAlign.center,
+                ),
+              ],
             ),
-            Text(
-              '$_counter',
-              style: Theme.of(context).textTheme.headline4,
-            ),
-            Text(
-              'Revealed secret:\n${ConfigReader.getSecretKey()}',
-              textAlign: TextAlign.center,
-            ),
-          ],
+          ),
+          floatingActionButton: FloatingActionButton(
+            onPressed: _incrementCounter,
+            tooltip: 'Increment',
+            child: Icon(Icons.add),
+          ),
         ),
-      ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: _incrementCounter,
-        tooltip: 'Increment',
-        child: Icon(Icons.add),
       ),
     );
   }

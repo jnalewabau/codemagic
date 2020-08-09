@@ -2,24 +2,16 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 import 'config_reader.dart';
-import 'environment.dart';
+import 'flavor.dart';
 import 'main.dart';
 
-Future<void> mainCommon(String env) async {
+Future<void> mainCommon(FlavorConfig config) async {
   // Always call this if the main method is asynchronous
   WidgetsFlutterBinding.ensureInitialized();
   // Load the JSON config into memory
   await ConfigReader.initialize();
 
-  Color primaryColor;
-  switch (env) {
-    case Environment.dev:
-      primaryColor = Colors.red;
-      break;
-    case Environment.prod:
-      primaryColor = Colors.green;
-      break;
-  }
+  Color primaryColor = config.color;
 
   runApp(
     Provider.value(
